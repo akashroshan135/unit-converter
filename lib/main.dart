@@ -4,36 +4,42 @@
 
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Hello Rectangle',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello Rectangle'),
-        ),
-        body: HelloRectangle(),
-      ),
-    ),
-  );
-}
+import 'category.dart';
 
-class HelloRectangle extends StatelessWidget {
+/// The function that is called when main.dart is run.
+void main() => runApp(MyApp());
+
+/// This widget is the root of our application.
+/// Currently, we just show one widget in our app.
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        color: Colors.greenAccent,
-        height: 400.0,
-        width: 300.0,
-        child: Center(
-          child: Text(
-            'Hello!',
-            style: TextStyle(fontSize: 40.0),
-            textAlign: TextAlign.center,
-          ),
+    return MaterialApp(
+      //debugShowCheckedModeBanner: false,
+      title: 'Test Lists',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Test Lists'),
+          backgroundColor: Colors.black,
+          actions: [
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: IconButton(
+                icon: Icon(Icons.info_outline_rounded),
+                onPressed: () => print('Shows about page'),
+              ),
+            )
+          ],
         ),
+        backgroundColor: Colors.black,
+        body: Center(
+            child: ListView(
+          children: [
+            Category('Cake', Icons.ac_unit_sharp, Colors.green),
+            Category('Alarm', Icons.access_alarm, Colors.blue[800]),
+            Category('_categoryName', Icons.announcement, Colors.lightBlue),
+          ],
+        )),
       ),
     );
   }
