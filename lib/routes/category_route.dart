@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'category.dart';
+import 'package:flutter_demo2/widgets/category.dart';
 import 'about_route.dart';
 
 const _BGColor = Colors.black;
 
 class CategoryRoute extends StatelessWidget {
-  const CategoryRoute();
+  CategoryRoute();
 
   static const _categoryIcon = [
     Icons.timeline,
@@ -54,6 +54,7 @@ class CategoryRoute extends StatelessWidget {
           padding: EdgeInsets.all(8),
           child: IconButton(
             icon: Icon(Icons.info_outline_rounded),
+            // * Navigator pushes the new screen to stack
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => AboutScreen()),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'converter_route.dart';
+import 'package:flutter_demo2/routes/converter_route.dart';
 
 class Category extends StatelessWidget {
   final categoryName;
@@ -27,6 +27,7 @@ class Category extends StatelessWidget {
             highlightColor: categoryColor,
             splashColor: categoryColor,
             onTap: () {
+              // * Navigator pushes the new screen to stack
               Navigator.push(
                 context,
                 MaterialPageRoute(

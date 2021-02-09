@@ -14,6 +14,7 @@ class ConverterScreen extends StatelessWidget {
     final appBar = AppBar(
       leading: IconButton(
           icon: Icon(Icons.arrow_back),
+          // * Navigator pops the old screen from stack
           onPressed: () => Navigator.pop(context)),
       title: Text(
         categoryName,
@@ -26,9 +27,13 @@ class ConverterScreen extends StatelessWidget {
       title: 'Material App',
       home: Scaffold(
         appBar: appBar,
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
+        body: Container(
+          color: Colors.black,
+          child: Center(
+            child: Text(
+              'Hello World',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
       ),
