@@ -1,10 +1,7 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
 
 import 'category.dart';
+import 'about_route.dart';
 
 const _BGColor = Colors.black;
 
@@ -57,7 +54,10 @@ class CategoryRoute extends StatelessWidget {
           padding: EdgeInsets.all(8),
           child: IconButton(
             icon: Icon(Icons.info_outline_rounded),
-            onPressed: () => print('Shows about page'),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AboutScreen()),
+            ),
           ),
         ),
       ],

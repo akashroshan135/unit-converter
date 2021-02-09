@@ -1,8 +1,6 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
+
+import 'converter_route.dart';
 
 class Category extends StatelessWidget {
   final categoryName;
@@ -29,7 +27,12 @@ class Category extends StatelessWidget {
             highlightColor: categoryColor,
             splashColor: categoryColor,
             onTap: () {
-              print('I was tapped!');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        ConverterScreen(categoryName, categoryColor)),
+              );
             },
             child: Row(
               children: <Widget>[
