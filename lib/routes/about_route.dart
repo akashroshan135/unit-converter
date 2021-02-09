@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const _textcolor = TextStyle(fontSize: 15, color: Colors.white);
-
 class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,9 +10,9 @@ class AboutScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context)),
       title: Text(
         'About',
-        style: TextStyle(fontSize: 20, color: Colors.white),
+        style: Theme.of(context).textTheme.headline5,
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).primaryColor,
     );
 
     final appName = Container(
@@ -25,7 +23,8 @@ class AboutScreen extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Text(
             'Unit Converter',
-            style: TextStyle(fontSize: 35.0, color: Colors.white),
+            style:
+                Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 35.0),
           ),
         ),
         Container(
@@ -33,7 +32,7 @@ class AboutScreen extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: Text(
             'Version: idk ¯\\\_(ツ)_/¯',
-            style: _textcolor,
+            style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
       ]),
@@ -44,17 +43,17 @@ class AboutScreen extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         'A small Unit Conversion app I\'m developing while following the \'Build Native Mobile Apps with Flutter\' course on Udacity. I don\'t know why you\'re using this, it\'s just a basic conversion app that doesn\'t even work at the moment but thanks.',
-        style: _textcolor,
+        style: Theme.of(context).textTheme.bodyText1,
       ),
     );
 
-    final plug = <Widget>[
+    final shamlessPlug = <Widget>[
       Container(
         padding: EdgeInsets.all(20.0),
         alignment: Alignment.center,
         child: Text(
           'Check out my GitHub. I make stuff.',
-          style: _textcolor,
+          style: Theme.of(context).textTheme.bodyText1,
         ),
       ),
       Container(
@@ -73,12 +72,17 @@ class AboutScreen extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Theme.of(context).backgroundColor,
         appBar: appBar,
         body: Container(
           padding: EdgeInsets.all(10),
           child: ListView(
-            children: <Widget>[appName, appDescription, plug[0], plug[1]],
+            children: <Widget>[
+              appName,
+              appDescription,
+              shamlessPlug[0],
+              shamlessPlug[1]
+            ],
           ),
         ),
       ),

@@ -14,8 +14,8 @@ class ConverterScreen extends StatefulWidget {
 }
 
 class _ConverterScreenState extends State<ConverterScreen> {
-  var _color = Colors.black;
-
+  var _bgColor = Colors.white;
+  var _textColor = Colors.black;
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
@@ -25,7 +25,7 @@ class _ConverterScreenState extends State<ConverterScreen> {
           onPressed: () => Navigator.pop(context)),
       title: Text(
         widget.categoryName,
-        style: TextStyle(fontSize: 20, color: Colors.white),
+        style: Theme.of(context).textTheme.headline5,
       ),
       backgroundColor: widget.categoryColor,
     );
@@ -35,13 +35,16 @@ class _ConverterScreenState extends State<ConverterScreen> {
       home: Scaffold(
         appBar: appBar,
         body: Container(
-          color: _color,
+          color: _bgColor,
           child: FlatButton(
-            onPressed: () => setState(() => _color = Colors.blue),
+            onPressed: () => setState(() {
+              _bgColor = Colors.black;
+              _textColor = Colors.white;
+            }),
             child: Center(
               child: Text(
                 'Hello World',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: _textColor),
               ),
             ),
           ),

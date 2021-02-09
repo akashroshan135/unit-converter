@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_demo2/widgets/category.dart';
+import 'package:unit_converter/widgets/category.dart';
 import 'about_route.dart';
-
-const _BGColor = Colors.black;
 
 class CategoryRoute extends StatelessWidget {
   CategoryRoute();
@@ -46,14 +44,18 @@ class CategoryRoute extends StatelessWidget {
     final appBar = AppBar(
       title: Text(
         'Unit Converter',
-        style: TextStyle(fontSize: 25, color: Colors.white),
+        style: Theme.of(context).textTheme.headline6,
       ),
-      backgroundColor: _BGColor,
+      backgroundColor: Theme.of(context).primaryColor,
       actions: [
         Padding(
           padding: EdgeInsets.all(8),
           child: IconButton(
-            icon: Icon(Icons.info_outline_rounded),
+            icon: Icon(
+              Icons.info_outline_rounded,
+              color: Theme.of(context).iconTheme.color,
+              size: Theme.of(context).iconTheme.size,
+            ),
             // * Navigator pushes the new screen to stack
             onPressed: () => Navigator.push(
               context,
@@ -75,6 +77,9 @@ class CategoryRoute extends StatelessWidget {
       ),
     );
 
-    return Scaffold(backgroundColor: _BGColor, appBar: appBar, body: listview);
+    return Scaffold(
+        backgroundColor: Theme.of(context).backgroundColor,
+        appBar: appBar,
+        body: listview);
   }
 }

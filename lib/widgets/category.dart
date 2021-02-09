@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_demo2/routes/converter_route.dart';
+import 'package:unit_converter/routes/converter_route.dart';
 
 class Category extends StatelessWidget {
   final categoryName;
@@ -21,7 +21,7 @@ class Category extends StatelessWidget {
         height: 80,
         child: Material(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.grey[900],
+          color: Theme.of(context).accentColor,
           child: InkWell(
             borderRadius: BorderRadius.circular(15),
             highlightColor: categoryColor,
@@ -41,13 +41,15 @@ class Category extends StatelessWidget {
                   padding: EdgeInsets.all(16),
                   child: Icon(
                     categoryIcon,
-                    color: Colors.white,
-                    size: 40,
+                    color: Theme.of(context).primaryIconTheme.color,
+                    size: Theme.of(context).primaryIconTheme.size,
                   ),
                 ),
                 Center(
-                  child: Text(categoryName,
-                      style: TextStyle(fontSize: 20, color: Colors.white)),
+                  child: Text(
+                    categoryName,
+                    style: Theme.of(context).textTheme.button,
+                  ),
                 ),
               ],
             ),
