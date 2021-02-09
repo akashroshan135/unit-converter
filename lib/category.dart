@@ -19,9 +19,7 @@ class Category extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(8),
-      
       child: Container(
-        
         height: 80,
         child: Material(
           borderRadius: BorderRadius.circular(15),
@@ -46,7 +44,7 @@ class Category extends StatelessWidget {
                 Center(
                   child: Text(categoryName,
                       style: TextStyle(fontSize: 20, color: Colors.white)),
-                )
+                ),
               ],
             ),
           ),
