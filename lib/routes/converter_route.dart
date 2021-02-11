@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const _padding = EdgeInsets.all(16.0);
+
 class ConverterScreen extends StatefulWidget {
   final categoryName;
   final categoryColor;
@@ -14,8 +16,8 @@ class ConverterScreen extends StatefulWidget {
 }
 
 class _ConverterScreenState extends State<ConverterScreen> {
-  var _bgColor = Colors.white;
-  var _textColor = Colors.black;
+  // var _bgColor = Colors.white;
+  // var _textColor = Colors.black;
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
@@ -30,12 +32,37 @@ class _ConverterScreenState extends State<ConverterScreen> {
       backgroundColor: widget.categoryColor,
     );
 
+    final input = Padding(
+      padding: _padding,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        TextField(
+          keyboardType: TextInputType.number,
+          cursorColor: widget.categoryColor,
+          style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 35),
+          decoration: InputDecoration(
+            labelText: 'Input',
+            labelStyle: TextStyle(color: widget.categoryColor),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: widget.categoryColor, width: 1)),
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: widget.categoryColor, width: 1)),
+          ),
+        ),
+      ]),
+    );
+
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
         appBar: appBar,
         body: Container(
-          color: _bgColor,
+          color: Theme.of(context).scaffoldBackgroundColor,
+          padding: _padding,
+          child: ListView(
+            children: [input],
+          ), /*
           child: FlatButton(
             onPressed: () => setState(() {
               _bgColor = Colors.black;
@@ -48,6 +75,7 @@ class _ConverterScreenState extends State<ConverterScreen> {
               ),
             ),
           ),
+        */
         ),
       ),
     );

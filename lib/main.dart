@@ -11,9 +11,11 @@ class MyApp extends StatelessWidget {
     // Used for AppBar and other primary widgets
     primaryColor: Colors.black,
     // Used for buttons
-    accentColor: Colors.grey[900],
+    secondaryHeaderColor: Colors.grey[900],
     // Used for backgroud color
     backgroundColor: Colors.black,
+    // Used for scffold backgroud color
+    scaffoldBackgroundColor: Color.fromARGB(255, 18, 18, 18),
     // Used for appBar icons
     iconTheme: IconThemeData(color: Colors.white, size: 30),
     // Used for main icons

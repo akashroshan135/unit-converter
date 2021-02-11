@@ -2,42 +2,39 @@ import 'package:flutter/material.dart';
 
 import 'package:unit_converter/widgets/category.dart';
 import 'about_route.dart';
+import 'package:unit_converter/category_data.dart';
 
-class CategoryRoute extends StatelessWidget {
+class CategoryRoute extends StatefulWidget {
   CategoryRoute();
 
-  static const _categoryIcon = [
-    Icons.timeline,
-    Icons.landscape,
-    Icons.add_outlined,
-    Icons.add_outlined,
-    Icons.access_time,
-    Icons.sd_storage,
-    Icons.electrical_services,
-    Icons.monetization_on,
-  ];
+  @override
+  _CategoryRouteState createState() => _CategoryRouteState();
+}
 
-  static const _categoryNames = <String>[
-    'Length',
-    'Area',
-    'Volume',
-    'Mass',
-    'Time',
-    'Digital Storage',
-    'Energy',
-    'Currency',
-  ];
+class _CategoryRouteState extends State<CategoryRoute> {
+  final _categories = <Category>[];
 
-  static const _baseColors = <Color>[
-    Colors.teal,
-    Colors.orange,
-    Colors.pinkAccent,
-    Colors.blueAccent,
-    Colors.yellow,
-    Colors.greenAccent,
-    Colors.purpleAccent,
-    Colors.red,
-  ];
+  @override
+  void initState() {
+    super.initState();
+
+    for (var i = 0; i < CategoryData.categoryNames.length; i++) {
+      _categories.add(Category(
+        CategoryData.categoryNames[i],
+        CategoryData.categoryIcon[i],
+        CategoryData.baseColors[i],
+      ));
+    }
+  }
+
+  Widget __buildCategoryWidgets() {
+    return ListView.builder(
+      itemCount: CategoryData.categoryNames.length,
+      itemBuilder: (BuildContext context, int index) {
+        return _categories[index];
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,20 +63,9 @@ class CategoryRoute extends StatelessWidget {
       ],
     );
 
-    final listview = Container(
-      // color: _BGColor,
-      child: ListView.builder(
-        itemCount: _categoryNames.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Category(
-              _categoryNames[index], _categoryIcon[index], _baseColors[index]);
-        },
-      ),
-    );
-
     return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: appBar,
-        body: listview);
+        body: Container(child: __buildCategoryWidgets()));
   }
 }

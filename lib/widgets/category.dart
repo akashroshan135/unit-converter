@@ -21,10 +21,10 @@ class Category extends StatelessWidget {
         height: 80,
         child: Material(
           borderRadius: BorderRadius.circular(15),
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).secondaryHeaderColor,
           child: InkWell(
             borderRadius: BorderRadius.circular(15),
-            highlightColor: categoryColor,
+            highlightColor: categoryColor[400],
             splashColor: categoryColor,
             onTap: () {
               // * Navigator pushes the new screen to stack
