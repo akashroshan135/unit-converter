@@ -12,30 +12,6 @@ class CategoryRoute extends StatefulWidget {
 }
 
 class _CategoryRouteState extends State<CategoryRoute> {
-  final _categories = <Category>[];
-
-  @override
-  void initState() {
-    super.initState();
-
-    for (var i = 0; i < CategoryData.categoryNames.length; i++) {
-      _categories.add(Category(
-        CategoryData.categoryNames[i],
-        CategoryData.categoryIcon[i],
-        CategoryData.baseColors[i],
-      ));
-    }
-  }
-
-  Widget __buildCategoryWidgets() {
-    return ListView.builder(
-      itemCount: CategoryData.categoryNames.length,
-      itemBuilder: (BuildContext context, int index) {
-        return _categories[index];
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
@@ -63,9 +39,20 @@ class _CategoryRouteState extends State<CategoryRoute> {
       ],
     );
 
+    final listview = ListView.builder(
+      itemCount: CategoryData.categoryNames.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Category(
+          CategoryData.categoryNames[index],
+          CategoryData.categoryIcon[index],
+          CategoryData.baseColors[index],
+        );
+      },
+    );
+
     return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: appBar,
-        body: Container(child: __buildCategoryWidgets()));
+        body: Container(child: listview));
   }
 }
