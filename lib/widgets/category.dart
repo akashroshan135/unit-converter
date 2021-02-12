@@ -13,6 +13,16 @@ class Category extends StatelessWidget {
     this.categoryColor,
   );
 
+  List<String> _buildUnits() {
+    List<String> units = <String>[];
+    var text;
+    for (var i = 1; i <= 10; i++) {
+      text = categoryName;
+      units.add('$text Unit $i');
+    }
+    return units;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,8 +41,8 @@ class Category extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>
-                        ConverterScreen(categoryName, categoryColor)),
+                    builder: (context) => ConverterScreen(
+                        categoryName, categoryColor, _buildUnits())),
               );
             },
             child: Row(
