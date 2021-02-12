@@ -42,7 +42,7 @@ class AboutScreen extends StatelessWidget {
       padding: EdgeInsets.all(20.0),
       alignment: Alignment.center,
       child: Text(
-        'A small Unit Conversion app I\'m developing while following the \'Build Native Mobile Apps with Flutter\' course on Udacity. I don\'t know why you\'re using this, it\'s just a basic conversion app that doesn\'t even work at the moment but thanks.\n\nUpdate: This app is never gonna be completed. I\'m spending way too much time on this but I need to start working on other stuff. So this is now a dummy experiment app with zero functionality.',
+        'A small Unit Conversion app I\'m developing while following the \'Build Native Mobile Apps with Flutter\' course on Udacity. I don\'t know why you\'re using this, it\'s just a basic conversion app that doesn\'t even work at the moment but thanks.\n\nUpdate: This app is work in progress but I have no plans on finishing it for now. I\'m spending way too much time on this but I need to start working on other stuff. So this is now a dummy experiment app with zero functionality.',
         style: Theme.of(context).textTheme.bodyText1,
       ),
     );
