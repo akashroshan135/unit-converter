@@ -43,9 +43,9 @@ class _CategoryRouteState extends State<CategoryRoute> {
       itemCount: CategoryData.categoryNames.length,
       itemBuilder: (BuildContext context, int index) {
         return Category(
-          CategoryData.categoryNames[index],
-          CategoryData.categoryIcon[index],
-          CategoryData.baseColors[index],
+          categoryName: CategoryData.categoryNames[index],
+          categoryIcon: CategoryData.categoryIcon[index],
+          categoryColor: CategoryData.baseColors[index],
         );
       },
     );

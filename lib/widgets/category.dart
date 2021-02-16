@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 
 import 'package:unit_converter/routes/converter_route.dart';
+import 'package:unit_converter/widgets/unit.dart';
 
 class Category extends StatelessWidget {
   final categoryName;
   final categoryIcon;
   final categoryColor;
 
-  const Category(
-    this.categoryName,
-    this.categoryIcon,
-    this.categoryColor,
-  );
+  const Category({
+    @required this.categoryName,
+    @required this.categoryIcon,
+    @required this.categoryColor,
+  })  : assert(categoryName != null),
+        assert(categoryIcon != null),
+        assert(categoryColor != null);
 
-  List<String> _buildUnits() {
-    List<String> units = <String>[];
-    var text;
-    for (var i = 1; i <= 10; i++) {
-      text = categoryName;
-      units.add('$text Unit $i');
-    }
-    return units;
+  List<Unit> _buildUnits() {
+    return List.generate(10, (int i) {
+      i++;
+      return Unit(
+        name: '$categoryName Unit $i',
+        conversion: i.toDouble(),
+      );
+    });
   }
 
   @override
@@ -41,8 +44,11 @@ class Category extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => ConverterScreen(
-                        categoryName, categoryColor, _buildUnits())),
+                  builder: (context) => ConverterScreen(
+                      categoryName: categoryName,
+                      categoryColor: categoryColor,
+                      units: _buildUnits()),
+                ),
               );
             },
             child: Row(
