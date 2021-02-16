@@ -184,7 +184,7 @@ class _ConverterScreenState extends State<ConverterScreen> {
           controller: swap,
           keyboardType: TextInputType.number,
           cursorColor: widget.categoryColor,
-          style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 35),
+          style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 35),
           decoration: InputDecoration(
             labelText: 'Input',
             labelStyle: TextStyle(color: widget.categoryColor),
@@ -231,7 +231,7 @@ class _ConverterScreenState extends State<ConverterScreen> {
         InputDecorator(
           child: Text(
             _convertedValue,
-            style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 35),
+            style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 35),
           ),
           decoration: InputDecoration(
             labelText: 'Output',

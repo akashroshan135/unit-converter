@@ -4,9 +4,12 @@ import 'routes/category_route.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  final bool _useDark = true;
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
   final _darkTheme = ThemeData(
     // Used for AppBar and other primary widgets
     primaryColor: Colors.black,
@@ -37,15 +40,17 @@ class MyApp extends StatelessWidget {
     // Used for AppBar and other primary widgets
     primaryColor: Colors.deepPurple[800],
     // Used for buttons
-    accentColor: Colors.blue,
+    secondaryHeaderColor: Colors.white,
     // Used for backgroud color
-    backgroundColor: Colors.green[100],
+    backgroundColor: Colors.white,
+    // Used for scffold backgroud color
+    scaffoldBackgroundColor: Colors.white,
     // Used for appBar icons
     iconTheme: IconThemeData(color: Colors.white, size: 30),
     // Used for main icons
     primaryIconTheme: IconThemeData(color: Colors.black, size: 40),
-    // Used for sub icons. Currently not wsed
-    accentIconTheme: IconThemeData(color: Colors.white, size: 30),
+    // Used for sub icons
+    accentIconTheme: IconThemeData(color: Colors.blue, size: 30),
     textTheme: TextTheme(
       // Main screen appBar font
       headline6: TextStyle(color: Colors.white, fontSize: 25.0),
@@ -61,9 +66,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // debugShowCheckedModeBanner: false,
-      title: 'Test Lists',
+      title: 'Unit Converter',
       home: CategoryRoute(),
-      theme: _useDark ? _darkTheme : _lightTheme,
+      theme: _lightTheme,
+      darkTheme: _darkTheme,
     );
   }
 }

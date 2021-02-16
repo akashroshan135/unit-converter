@@ -16,7 +16,7 @@ class AboutScreen extends StatelessWidget {
     );
 
     final appName = Container(
-      height: 200,
+      height: 160,
       child: ListView(children: [
         Container(
           height: 100,
@@ -42,14 +42,16 @@ class AboutScreen extends StatelessWidget {
       padding: EdgeInsets.all(20.0),
       alignment: Alignment.center,
       child: Text(
-        'A small Unit Conversion app I\'m developing while following the \'Build Native Mobile Apps with Flutter\' course on Udacity. I don\'t know why you\'re using this, it\'s just a basic conversion app that doesn\'t even work at the moment but thanks.\n\nUpdate: This app is work in progress but I have no plans on finishing it for now. I\'m spending way too much time on this but I need to start working on other stuff. So this is now a dummy experiment app with zero functionality.',
+        'A small Unit Conversion app I\'m developing while following the \'Build Native Mobile Apps with Flutter\' course on Udacity. I don\'t know why you\'re using this, it\'s just a basic conversion app that doesn\'t even work at the moment but thanks.' +
+            '\n\nUpdate 1: This app is work in progress but I have no plans on finishing it for now. I\'m spending way too much time on this but I need to start working on other stuff. So this is now a dummy experiment app with zero functionality.' +
+            '\n\nUpdate 2: I think I might be able to finish this app. There were some methods and stuff that confused the heck outta me but I finally understood it and got it somewhat working. I do have other stuff to work on, but I\'m kinda in the zone. Let\'s see how much I can actually finish.',
         style: Theme.of(context).textTheme.bodyText1,
       ),
     );
 
     final shamlessPlug = <Widget>[
       Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(16.0),
         alignment: Alignment.center,
         child: Text(
           'Check out my GitHub cause \'why not?\'',
@@ -57,7 +59,7 @@ class AboutScreen extends StatelessWidget {
         ),
       ),
       Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(10.0),
         alignment: Alignment.center,
         child: new InkWell(
           child: new Text(
